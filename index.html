@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            h1,h2,h3,p{
+                text-align: center;
+            }
+            .centeredImg{
+                margin-left:30%;
+            }
+
+            btn.btn-success:active{
+                background-color: red;
+            }
+
+            .discordServerDisplay{
+                background-color: #33363b;
+                /* border: .15em solid #6d737c; */
+                border-radius: 10px 10px 0 0;
+                width: 50em;
+                height: 15em;
+                color:lightgray;
+            }
+
+            .discordServerDisplay td{
+            }
+
+            #bgCanvas{
+                z-index: -1;
+                position:absolute;
+            }
+
+            #joinBtn{
+                width:10em;
+                margin-right:2em;
+            }
+
+            #onlineNumber{
+                margin-right:1em;
+            }
+        </style>
+        <title>Lemonbot</title>
+    </head>
+    <body>
+        <canvas id='bgCanvas'></canvas>
+        <div>
+            <h1>Hi there, I'm Lemonbot!</h1>
+            <img class='centeredImg' src='./assets/lemonBot.svg' style="width:25%;height:25%">
+            <p>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=820476860328706048&permissions=20981824&scope=bot">
+                    <button type="button" class="btn btn-success"><span style="font-weight: bold; font-size: 1.5em;">+</span> Add me to Discord</button>
+                </a>
+            </p>
+        </div>
+
+        <h2>It's nice to meet you, there is a lot your gang and I can do together!</h2>
+        <div><h2>Popular commands this week:</h2></div>
+
+
+        <div id="#featuresCarousel" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+              <li data-target="#featuresCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#featuresCarousel" data-slide-to="1"></li>
+              <li data-target="#featuresCarousel" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="la.jpg" alt="">
+                <div class="carousel-caption">
+
+                </div>   
+              </div>
+              <div class="carousel-item">
+                <img src="chicago.jpg" alt="">
+                <div class="carousel-caption">
+                </div>   
+              </div>
+              <div class="carousel-item">
+                <img src="ny.jpg" alt="">
+                <div class="carousel-caption">
+                </div>   
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#featuresCarousel" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#featuresCarousel" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+
+        <h1>And most importantly...</h1>
+
+        <img class='centeredImg' src='./assets/rylan_noNeck.png' style='width:50%; height:50%'>
+        <div>
+            <h3>This guy</h3>
+            <p>(His name is Rylan by the way) <span style='font-size:20%'>and definitely not Ryland...</span></p>
+        </div>
+        
+        <p>            
+            <a href="https://discord.com/api/oauth2/authorize?client_id=820476860328706048&permissions=20981824&scope=bot">
+                <button type="button" class="btn btn-success"><span style="font-weight: bold; font-size: 1.5em;">+</span> Add me to Discord</button>
+            </a>
+        </p>
+
+        <h3>Ooooor...</h3>
+        
+        <h2>Stop by the community and try me out!</h2>
+        <table class='discordServerDisplay'>
+            <tbody>
+                <tr>
+                    <td><img src="./assets/lemonBotCommunitySquircle.png" style="width:8em;height:8em;border-radius: 45px;margin-left: 2em;"></td>
+                    <td><h2>Lemon Bot Community & Help Desk</h2></td>
+                </tr>
+                <tr>
+                    <td><a href='https://discord.com' target="_blank"><img src='./assets/discordGray.svg' style='margin-left: 2em;'></a></td>
+                    <td style="text-align: right;">
+                        <span id="onlineNumber"></span>
+                        <a href="https://discord.gg/epBxDGdErz" target="_blank"><button type="button" id="joinBtn" class="btn btn-success btn-lg">Join</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <footer></footer>
+        <script>
+            //Get statistics about the community server
+            fetch('https://discordapp.com/api/guilds/815026028250005556/widget.json').then(e=>e.json()).then(resultJson=>onlineNumber.innerText = resultJson.members.length + " online now");
+
+            //background code:
+            var canvasLock = false;
+            var ctx = bgCanvas.getContext('2d');
+
+            var lock = 0;
+            var unlock = 0;
+
+            function redrawBg(){
+                if(canvasLock) {
+                    lock++;
+                    return;
+                }
+                //Stop this function from constantly hogging resources
+                canvasLock = true;
+                setTimeout(()=>{
+                    bgCanvas.width = document.body.offsetWidth,
+                    bgCanvas.height = document.body.offsetHeight;
+                    var grd = ctx.createLinearGradient(document.body.offsetHeight/2, 0, 0, document.body.offsetHeight/2);
+                    grd.addColorStop(1, "#fa5afffe");
+                    grd.addColorStop(0, "#5adeffff");
+                    ctx.fillStyle = grd;
+                    //We would normally be concerned with clearing and redrawing, but since we're taking up the full screen and the only thing drawn is the background, there's nothing to worry about :D
+                    ctx.fillRect(0,0,bgCanvas.width,bgCanvas.height);
+                    unlock++;
+                    canvasLock = false;
+                },16.6);
+            }
+            window.addEventListener('resize',redrawBg);
+
+            redrawBg();
+        </script>
+    </body>
+</html>
