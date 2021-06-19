@@ -9,7 +9,10 @@
                 text-align: center;
             }
             .centeredImg{
-                margin-left:30%;
+                margin-left: auto;
+                margin-right: auto;
+                animation-name: lemonbotPop;
+                animation-duration:.5s;
             }
 
             btn.btn-success:active{
@@ -41,20 +44,38 @@
             #onlineNumber{
                 margin-right:1em;
             }
+
+            /* Lemonbot pop effect animation */
+            @keyframes lemonbotPop{
+                from{
+                    width:0px;
+                    height:0px;
+                }
+
+                40%{
+                    width:600px;
+                    height:600px;
+                }
+
+                to{
+                    width:500px;
+                    height:500px;
+                }
+            }
         </style>
         <title>Lemonbot</title>
     </head>
     <body>
         <canvas id='bgCanvas'></canvas>
-        <div>
-            <h1>Hi there, I'm Lemonbot!</h1>
-            <img class='centeredImg' src='./assets/lemonBot.svg' style="width:25%;height:25%">
+        <h1>Hi there, I'm Lemonbot!</h1>
+        <p id='joe'>
+                <img class='centeredImg' src='./assets/lemonBot.svg'/>
             <p>
                 <a href="https://discord.com/api/oauth2/authorize?client_id=820476860328706048&permissions=20981824&scope=bot">
                     <button type="button" class="btn btn-success"><span style="font-weight: bold; font-size: 1.5em;">+</span> Add me to Discord</button>
                 </a>
             </p>
-        </div>
+        </p>
 
         <h2>It's nice to meet you, there is a lot your gang and I can do together!</h2>
         <div><h2>Popular commands this week:</h2></div>
@@ -94,7 +115,9 @@
 
         <h1>And most importantly...</h1>
 
-        <img class='centeredImg' src='./assets/rylan_noNeck.png' style='width:50%; height:50%'>
+        <p>
+            <img src='./assets/rylan_noNeck.png' style='width:50%; height:50%'>
+        </p>
         <div>
             <h3>This guy</h3>
             <p>(His name is Rylan by the way) <span style='font-size:20%'>and definitely not Ryland...</span></p>
@@ -159,6 +182,8 @@
             window.addEventListener('resize',redrawBg);
 
             redrawBg();
+            //There's a strange bug where the background doesn't draw everything while the animation is playing
+            setTimeout(redrawBg,500);
         </script>
     </body>
 </html>
