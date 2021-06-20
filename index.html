@@ -5,6 +5,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <style>
+            body{
+                color:gray;
+            }
             h1,h2,h3,p{
                 text-align: center;
             }
@@ -22,10 +25,11 @@
             .discordServerDisplay{
                 background-color: #33363b;
                 /* border: .15em solid #6d737c; */
-                border-radius: 10px 10px 0 0;
-                width: 50em;
+                border-radius: 10px;
+                width: 80%;
                 height: 15em;
                 color:lightgray;
+                margin-left:10%;
             }
 
             .discordServerDisplay td{
@@ -43,6 +47,18 @@
 
             #onlineNumber{
                 margin-right:1em;
+            }
+
+            .page-link{
+                background-color: #33363b;
+                border: 1px solid #151619;
+                color:lightgray
+            }
+
+            .page-link:hover{
+                background-color: #4a4a4a;
+                border: 1px solid #151619;
+                color:lightgray;
             }
 
             /* Lemonbot pop effect animation */
@@ -122,6 +138,16 @@
             <h3>This guy</h3>
             <p>(His name is Rylan by the way) <span style='font-size:20%'>and definitely not Ryland...</span></p>
         </div>
+
+        <h2>Here's my full list of commands:</h2>
+        
+        <ul class="pagination pagination-lg">
+            <li class="page-item"><span class="page-link" href="">Tools</span></li>
+            <li class="page-item"><span class="page-link" href="">Memes</span></li>
+            <li class="page-item"><span class="page-link" href="">Games</span></li>
+            <li class="page-item"><span class="page-link" href="">Text</span></li>
+            <li class="page-item"><span class="page-link" href="">Eliza</span></li>
+          </ul>
         
         <p>            
             <a href="https://discord.com/api/oauth2/authorize?client_id=820476860328706048&permissions=20981824&scope=bot">
