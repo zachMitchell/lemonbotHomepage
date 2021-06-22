@@ -61,6 +61,17 @@
                 color:lightgray;
             }
 
+            .carousel-inner img{
+                border-radius: 10px;
+            }
+
+            .communityImage{
+                width:8em;
+                height:8em;
+                border-radius: 45px;
+                margin-left: 2em;
+            }
+
             /* Lemonbot pop effect animation */
             @keyframes lemonbotPop{
                 from{
@@ -76,6 +87,20 @@
                 to{
                     width:500px;
                     height:500px;
+                }
+            }
+
+            @media screen and (min-width: 1000px) {
+                .discordServerDisplay{
+                    width: 60%;
+                    margin-left: 20%;
+                }
+            }
+
+            @media screen and (min-width: 2600px) {
+                .discordServerDisplay{
+                    width: 60%;
+                    margin-left: 20%;
                 }
             }
         </style>
@@ -96,35 +121,37 @@
         <h2>It's nice to meet you, there is a lot your gang and I can do together!</h2>
         <div><h2>Popular commands this week:</h2></div>
 
-
-        <div id="#featuresCarousel" class="carousel slide" data-ride="carousel">
+        <div id="features-gallery" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
-              <li data-target="#featuresCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#featuresCarousel" data-slide-to="1"></li>
-              <li data-target="#featuresCarousel" data-slide-to="2"></li>
+              <li data-target="#features-gallery" data-slide-to="0" class="active"></li>
+              <li data-target="#features-gallery" data-slide-to="1"></li>
+              <li data-target="#features-gallery" data-slide-to="2"></li>
+              <li data-target="#features-gallery" data-slide-to="3"></li>
+              <li data-target="#features-gallery" data-slide-to="4"></li>
             </ul>
+
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="la.jpg" alt="">
-                <div class="carousel-caption">
-
-                </div>   
+                <p><img src="assets/screenshots/tools.png"></p>
               </div>
               <div class="carousel-item">
-                <img src="chicago.jpg" alt="">
-                <div class="carousel-caption">
-                </div>   
+                <p><img src="assets/screenshots/memes.png"></p>
               </div>
               <div class="carousel-item">
-                <img src="ny.jpg" alt="">
-                <div class="carousel-caption">
-                </div>   
+                <p><img src="assets/screenshots/games.png"></p>
+              </div>
+              <div class="carousel-item">
+                <p><img src="assets/screenshots/text.png"></p>
+              </div>
+              <div class="carousel-item">
+                <p><img src="assets/screenshots/eliza.png"></p>
               </div>
             </div>
-            <a class="carousel-control-prev" href="#featuresCarousel" data-slide="prev">
+
+            <a class="carousel-control-prev" href="#features-gallery" data-slide="prev">
               <span class="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#featuresCarousel" data-slide="next">
+            <a class="carousel-control-next" href="#features-gallery" data-slide="next">
               <span class="carousel-control-next-icon"></span>
             </a>
           </div>
@@ -141,12 +168,12 @@
 
         <h2>Here's my full list of commands:</h2>
         
-        <ul class="pagination pagination-lg">
-            <li class="page-item"><span class="page-link" href="">Tools</span></li>
-            <li class="page-item"><span class="page-link" href="">Memes</span></li>
-            <li class="page-item"><span class="page-link" href="">Games</span></li>
-            <li class="page-item"><span class="page-link" href="">Text</span></li>
-            <li class="page-item"><span class="page-link" href="">Eliza</span></li>
+        <ul class="pagination pagination-lg justify-content-center">
+            <li class="page-item"><span class="page-link">Tools</span></li>
+            <li class="page-item"><span class="page-link">Memes</span></li>
+            <li class="page-item"><span class="page-link">Games</span></li>
+            <li class="page-item"><span class="page-link">Text</span></li>
+            <li class="page-item"><span class="page-link">Eliza</span></li>
         </ul>
         
         <p>            
@@ -161,7 +188,7 @@
         <table class='discordServerDisplay'>
             <tbody>
                 <tr>
-                    <td><img src="./assets/lemonBotCommunitySquircle.png" style="width:8em;height:8em;border-radius: 45px;margin-left: 2em;"></td>
+                    <td><img class="communityImage" src="./assets/lemonBotCommunitySquircle.png"></td>
                     <td><h2>Lemon Bot Community & Help Desk</h2></td>
                 </tr>
                 <tr>
