@@ -14,7 +14,10 @@ var commandsList = {
     "tools":[
         ["age", "Find out the age of two discord accounts",'tool'],
         ["math", "Do Stonks"],
+        ["join", "hop into an existing activity with your friends!"],
+        ["leave", "exit an activity you're in the middle of"],
         ["rnd", "Ask for a random number"],
+        ["sessions", "Find out what you or others are doing"],
         ["shuf", "Randomize a list of things"],
     ],
     "memes":[
