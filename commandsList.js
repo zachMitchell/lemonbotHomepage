@@ -21,7 +21,8 @@ var commandsList = {
         ["dumbot", "Ask an intelligent question"],
         ["mock","End all your debates instantly with the power of mocking spongebob!"],
         ["rylan", "Display this man's greatness to the channel"],
-        ["wisdom", "Recieve good advice from a wise man"]
+        ["wisdom", "Recieve good advice from a wise man"],
+        ["namejumble", "Fuse up to 4 usernames together for an abomination"]
     ],
     "games":[
         ["hangman",'Guess the word! ...or the emoji man **dies**'],

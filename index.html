@@ -6,9 +6,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <style>
             body{
-                color:gray;
+                color:rgb(92, 92, 92);
             }
-            h1,h2,h3,p{
+            h1,h2,h3,h5,p{
                 text-align: center;
             }
             .centeredImg{
@@ -30,9 +30,6 @@
                 height: 15em;
                 color:lightgray;
                 margin-left:10%;
-            }
-
-            .discordServerDisplay td{
             }
 
             #bgCanvas{
@@ -98,11 +95,15 @@
                 font-size: 1.5em;
             }
 
-            .cmdTable span{
+            .cmdTable span, .popCmdList span{
                 background-color: gray;
                 color:white;
                 border-radius: 5px;
                 padding:10px;
+            }
+
+            .popCmdList span{
+                margin-left:20px;
             }
 
             .cmdTable tr{
@@ -212,7 +213,7 @@
                 <a href="#adminCmdList"><button type="button" class="btn btn-success">Admin</button></a>
             </p>
         </p>
-        <div><h2>Popular commands this week:</h2></div>
+        <div id='popularCommands' style='display:none'><h2>Popular commands this week:<span class='popCmdList'></span></h2></div>
         <h2 class="newSection">It's nice to meet you, there is a lot your gang and I can do together!</h2>
 
         <div id="features-gallery" class="carousel slide" data-ride="carousel">
@@ -289,6 +290,7 @@
                 <button type="button" class="btn btn-success"><span style="font-weight: bold; font-size: 1.5em;">+</span> Add me to Discord</button>
             </a>
         </p>
+        <h5 id='peopleUsingLemonbot'></h5>
 
         <h3>Ooooor...</h3>
         
@@ -379,6 +381,22 @@
             redrawBg();
             //There's a strange bug where the background doesn't draw everything while the animation is playing
             setTimeout(redrawBg,500);
+
+            //Grab the statistics of lemonbot directly to see what everyone's favorite commands are
+            fetch('http://zdmitchell.com:3000').then(e=>e.json()).then(awesomeJson=>{
+                //Insert commands of the week
+                if(awesomeJson.commandsOfTheWeek.length){
+                    popularCommands.style.display='';
+                    let cmdList = popularCommands.getElementsByTagName('span')[0];
+                    for(var i of awesomeJson.commandsOfTheWeek)
+                        cmdList.appendChild($('<span>?'+i+'</span>')[0]);
+                }
+                
+                //How many people have used lemonbot since the last update:
+                if(awesomeJson.serverCount) peopleUsingLemonbot.innerHTML += '('+awesomeJson.serverCount + ' servers using him since the last update!)';
+            });
+
+            //Hi renegace
         </script>
     </body>
 </html>
