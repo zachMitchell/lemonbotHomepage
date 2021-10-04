@@ -383,7 +383,7 @@
             setTimeout(redrawBg,500);
 
             //Grab the statistics of lemonbot directly to see what everyone's favorite commands are
-            fetch('http://zdmitchell.com:3000').then(e=>e.json()).then(awesomeJson=>{
+            fetch('https://lemonbot-prod.herokuapp.com').then(e=>e.json()).then(awesomeJson=>{
                 //Insert commands of the week
                 if(awesomeJson.commandsOfTheWeek.length){
                     popularCommands.style.display='';
