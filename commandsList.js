@@ -16,9 +16,12 @@ var commandsList = {
         ["math", "Do Stonks"],
         ["rnd", "Ask for a random number"],
         ["shuf", "Randomize a list of things"],
+        ["sessions", "Find out what you or others are doing"],
+        ["switch", "(advanced) Use this to change your focus (see /sessions for things you can switch to)"]
     ],
     "memes":[
         ["dumbot", "Ask an intelligent question"],
+        ["lemon", "go meta and meme using the fruity memer himself"],
         ["mock","End all your debates instantly with the power of mocking spongebob!"],
         ["rylan", "Display this man's greatness to the channel"],
         ["wisdom", "Recieve good advice from a wise man"],
@@ -36,6 +39,6 @@ var commandsList = {
         ["gamerfy", "Mak3 y0ur 73x7 gam3r 57yl3."],
     ],
     "eliza":[
-        ['eliza','Your local therapist from 1966, she will help with all of your problems! [Disclaimer: may not actually solve your problems]']
+        ['eliza','A therapist from 1966 who will help with all of your problems! [Disclaimer... probably not]']
     ]
 }

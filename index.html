@@ -324,7 +324,7 @@
                 commandsTbodyObj[i] = document.createElement('tbody');
 
                 for(var j of commandsList[i])
-                    commandsTbodyObj[i].appendChild($('<tr><td><span>?'+j[0]+'</span></td><td>'+j[1]+'</td></tr>')[0]);
+                    commandsTbodyObj[i].appendChild($('<tr><td><span>/'+j[0]+'</span></td><td>'+j[1]+'</td></tr>')[0]);
             }
 
             //Apply the table body to the admin table itself:
@@ -389,7 +389,7 @@
                     popularCommands.style.display='';
                     let cmdList = popularCommands.getElementsByTagName('span')[0];
                     for(var i of awesomeJson.commandsOfTheWeek)
-                        cmdList.appendChild($('<span>?'+i+'</span>')[0]);
+                        cmdList.appendChild($('<span>/'+i+'</span>')[0]);
                 }
                 
                 //How many people have used lemonbot since the last update:
