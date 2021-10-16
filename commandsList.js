@@ -13,6 +13,8 @@ var commandsList = {
     ],
     "tools":[
         ["age", "Find out the age of two discord accounts",'tool'],
+        ["dateadd", "Add numbers to find out what date it lands on"],
+        ["datediff", "Use two dates to find the total of days between eachother"],
         ["math", "Do Stonks"],
         ["join", "hop into an existing activity with your friends!"],
         ["leave", "exit an activity you're in the middle of"],
