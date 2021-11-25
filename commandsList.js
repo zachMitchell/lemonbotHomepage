@@ -27,6 +27,7 @@ var commandsList = {
         ["dumbot", "Ask an intelligent question"],
         ["lemon", "go meta and meme using the fruity memer himself"],
         ["mock","End all your debates instantly with the power of mocking spongebob!"],
+        ["ohno", "Send a random meme! You never know what comes next with this one! (Created for Darth Plagueis!)"],
         ["rylan", "Display this man's greatness to the channel"],
         ["wisdom", "Recieve good advice from a wise man"],
         ["namejumble", "Fuse up to 4 usernames together for an abomination"]
